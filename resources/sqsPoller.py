@@ -3,8 +3,11 @@ import sys
 
 # Get the service resource
 sqs = boto3.client('sqs', region_name='us-west-2', aws_access_key_id='AKIAIGPK4KUBF4HIY7KQ', aws_secret_access_key='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')
+queueName = sys.argv[1]
 
-url = sqs.get_queue_url(QueueName=sys.argv[0])["QueueUrl"]
+print(queueName)
+
+url = sqs.get_queue_url(QueueName=queueName)["QueueUrl"]
 
 while True:
     messages = sqs.receive_message(QueueUrl=url, MaxNumberOfMessages=1, WaitTimeSeconds=10)
