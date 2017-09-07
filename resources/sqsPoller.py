@@ -14,8 +14,8 @@ while True:
 
             print(message['Body'])
             if(message['Body'] == "True"):
-                sys.exit(1)
-            else:
                 sys.exit(0)
+            else:
+                sys.exit(1)
     else:
         print('Timeout - try again')
