@@ -15,8 +15,8 @@ while True:
         for message in messages['Messages']:
             sqs.delete_message(QueueUrl=url,ReceiptHandle=message['ReceiptHandle'])
 
-            print(message['Body'])
-            if(message['Body'] == "True"):
+            print(message['Body'].upper())
+            if(message['Body'].upper() == "TRUE"):
                 sys.exit(0)
             else:
                 sys.exit(1)
